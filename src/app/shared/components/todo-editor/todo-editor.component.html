@@ -1,0 +1,11 @@
+<form [formGroup]="textForm"  (submit)="onSave(textForm)">
+  <div class="todo-editor">
+    <mat-form-field class="todo-editor__textarea">
+      <textarea (keydown.enter)="onPreventDefault($event)" (keydown.enter)='onSave(textForm)' #textInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5" formControlName="text" name="title" matInput></textarea>
+    </mat-form-field>
+  </div>
+
+  <button class="todo-editor__action" type="submit" mat-raised-button color="primary">Сохранить</button>
+
+</form>

@@ -1,0 +1,85 @@
+@import './src/scss/_colors';
+@import './src/scss/_functions';
+
+
+:host {
+  height: 100%;
+  max-height: 100%;
+}
+
+.todo {
+  &__edit-icon {
+    color: color(gray);
+    opacity: 0;
+  }
+
+  &__btn {
+    color: color(gray);
+    font-weight: 600;
+    width: 100%;
+  }
+}
+
+.todo-editor__textarea {
+  width: 100%;
+}
+
+textarea {
+  cursor: pointer;
+}
+
+.todo__card {
+  h2 {
+    font-size: 1rem;
+    font-family: sans-serif;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.8rem;
+  }
+
+  &__box {
+    background: color(base-box);
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    border-radius: 5px;
+    padding: 0.2rem;
+
+    &:hover {
+      .todo__edit-icon {
+        opacity: 1;
+      }
+
+      cursor: pointer;
+      background-color: color(base-hover-box);
+    }
+  }
+}
+
+
+// Привет документации материала :)
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-todo-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

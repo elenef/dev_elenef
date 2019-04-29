@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@import './scss/_reset';
+@import './scss/_mixins';
+@import './src/scss/_colors';
+@import './src/scss/_functions';
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+body, html {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 600px;
+}
+
+
+mat-icon.md-18 {
+  @include md-icon-size(18px);
+}
+
+mat-icon.md-16 {
+  @include md-icon-size(16px);
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  opacity: 0;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.mat-form-field-infix {
+  border-top: none;
+}
+
+
+.todo__card {
+  width: 280px;
+  background-color: color(base-background);
+  padding: 0.8rem;
+  height: 100%;
+  max-height: 100%;
+}

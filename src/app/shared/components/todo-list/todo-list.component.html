@@ -1,0 +1,29 @@
+ <div fxLayout="column" class="todo__card">
+  <div fxLayout="row"><h2>{{todoList.title}}</h2></div>
+   <perfect-scrollbar class="todo__card__container" cdkDropList id="{{todoList.name}}"
+     [cdkDropListData]="todoList.todos" [cdkDropListConnectedTo]="allDropLists" (cdkDropListDropped)="drop($event)">
+     <div #todoRefs [id]="todo.id" (click)="editableId !== todo.id && onEdit(todo)"
+       *ngFor="let todo of todoList.todos; let index = index;trackBy:trackByIndex" class="todo__card__box" cdkDrag
+       fxLayout="row">
+       <div fxFlex fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="0.2rem">
+         <div fxFlex>
+           <mat-form-field class="todo-editor__textarea">
+             <textarea (blur)="onBlur(todo, todoList.todos)" #textarea [readonly]="editableId!== todo.id"
+               (keydown.enter)='onPreventDefault($event);' cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+               cdkAutosizeMinRows="0" cdkAutosizeMaxRows="5" [(ngModel)]="todo.title" name="title" matInput></textarea>
+           </mat-form-field>
+         </div>
+         <div fxFlex="24px">
+           <mat-icon class="todo__edit-icon md-18">edit</mat-icon>
+         </div>
+       </div>
+     </div>
+   </perfect-scrollbar>
+
+
+   <button *ngIf="!editableId" (click)="onAdd()" class="todo__btn" mat-button>
+     <mat-icon class="md-16">add</mat-icon> Добавить новую задачу
+   </button>
+   <button *ngIf="editableId" (click)="editableId = null" class="todo-editor__action" type="submit" mat-raised-button
+     color="primary">Сохранить</button>
+ </div>

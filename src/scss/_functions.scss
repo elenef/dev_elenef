@@ -1,0 +1,8 @@
+@import './_colors';
+
+@function color($name) {
+  @if has-map-key($colors, $name) {
+    @return map-get($colors, $name);
+  }
+}
+

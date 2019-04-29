@@ -1,0 +1,15 @@
+.todo-editor {
+  height: 100px;
+  background: white;
+  border-radius: 5px;
+  padding: 0.2rem;
+  width: 250px;
+
+  &__action {
+    margin: 0.5rem 0px;
+  }
+}
+
+.todo-editor__textarea {
+  width: 100%;
+}

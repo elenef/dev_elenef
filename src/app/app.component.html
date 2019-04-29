@@ -1,0 +1,9 @@
+<div class="todo" fxLayout="row" fxLayoutGap="4em">
+  <app-todo-list *ngFor="let todoList of todoLists" [todoList]="todoList" [allDropLists]="allDropLists">
+  </app-todo-list>
+
+  
+  <div *ngIf="!todoLists" class="todo__card mock"></div>
+  <div *ngIf="!todoLists" class="todo__card mock"></div>
+
+</div>
